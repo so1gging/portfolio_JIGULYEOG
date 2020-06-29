@@ -124,7 +124,7 @@
 					<c:forEach items="${pList }" var="project">
 					
 			            <div class="card fundraise-item">
-			              <a href="#"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/upload/images/project/${project.pro_image}" style="width: 270px; height: 300px; margin:0px auto;" alt="Image placeholder"></a>
+			              <a href="projectdetail.do?pro_num=${project.pro_num }"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/upload/images/project/${project.pro_image}" style="width: 270px; height: 300px; margin:0px auto;" alt="Image placeholder"></a>
 			              <div class="card-body">
 			                <h3 class="card-title"><a href="projectdetail.do?pro_num=${project.pro_num }">${project.pro_title }</a></h3>
 			                <span class="donation-time mb-3 d-block"><fmt:formatDate value="${project.pro_start_date}" pattern="yyyy.MM.dd"/> ~ <fmt:formatDate value="${project.pro_due_date}" pattern="yyyy.MM.dd"/>까지</span>

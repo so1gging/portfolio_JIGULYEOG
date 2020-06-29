@@ -354,7 +354,7 @@
                 <br>
                 <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/upload/images/project/${project.pro_image}" alt="" class="img-fluid" style="width: 500px; height: 460px; "></p>
 
-                <div class="project-detail">
+                <div class="project-detail" style="word-break:break-all;">
                 	${project.pro_detail }
                 </div>
                 <div class="pt-5 mt-5">
