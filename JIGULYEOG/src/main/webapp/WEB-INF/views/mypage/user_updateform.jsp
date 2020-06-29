@@ -112,7 +112,7 @@ body {
 				$.ajax({
 					type : 'POST',
 					data : JSON.stringify(param),
-					url : 'nickCheck.do',
+					url : 'nickCheckForUserUpdate.do',
 					dateType : 'json',
 					contentType : "application/json; charset=UTF-8",
 					success : function(data) {
@@ -149,7 +149,7 @@ body {
 				$.ajax({
 					type : 'POST',
 					data : JSON.stringify(param),
-					url : 'phoneCheck.do',
+					url : 'updatePhoneCheck.do',
 					dateType : 'json',
 					contentType : "application/json; charset=UTF-8",
 					success : function(data) {

@@ -271,7 +271,6 @@ public class OrgController {
 		}
 	}
 	
-	
 	//phoneCheck
 	   @RequestMapping("/updatePhoneCheck.do")
 	   @ResponseBody
