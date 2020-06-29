@@ -3,6 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.org">
+	<resultMap type="SubscribeDto" id="Subscribe_map">
+		<result column="ORG_NUM" property="org_num"></result>
+	</resultMap>
+
+	<resultMap type="UserDto" id="UserDto_Map">
+		<result column="USER_ID" property="user_id"></result>
+		<result column="USER_PIC" property="user_pic"></result>
+		<collection property="subscribe" resultMap="Subscribe_map"></collection>
+	</resultMap>
+
+
+
+
 
 	<select id="getOrgList" parameterType="java.util.HashMap" resultType="OrgDto">
 		SELECT O.*
@@ -76,6 +89,11 @@
 		SELECT COUNT(*)
 		FROM (SELECT * FROM SUBSCRIBE
 				WHERE ORG_NUM=#{org_num} AND USER_ID=#{user_id})
+	</select>
+	
+	<select id="getSubList" parameterType="int" resultMap="UserDto_Map">
+		SELECT A.USER_ID, A.USER_PIC, B.ORG_NUM FROM USER_TB A
+		JOIN (SELECT * FROM SUBSCRIBE WHERE ORG_NUM=#{org_num}) B ON (A.USER_ID = B.USER_ID)
 	</select>
 	
 </mapper>

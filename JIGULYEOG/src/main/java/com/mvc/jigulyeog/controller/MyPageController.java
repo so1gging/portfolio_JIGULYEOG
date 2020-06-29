@@ -247,17 +247,33 @@ public class MyPageController {
 
 		// session의 user_pw와 입력된 user_pw 비교
 		if (user_pw.equals(user_pw_session)) {
-			// true면 db삭제 진행
+			//비밀번호가 일치 할 때
+			//환경단체인지 일반단체인지 확인
+			int org_num = user.getUser_status();
 			String user_id = user.getUser_id();
-			int res = mpb.secession(user_id);
-			if (res > 0) {
-				session.invalidate();
-				jsResponse("회원탈퇴가 완료되었습니다.", "index.do", response);
+			
+			if(org_num>0) {
+				//환경단체 회원 일 때, org_pic을 null로 변경 및 user db삭제
+				int update_res = mpb.secession_org_update(org_num);
+				int delete_res = mpb.secession(user_id);
+				if (delete_res > 0 && update_res > 0) {
+					session.invalidate();
+					jsResponse("회원탈퇴가 완료되었습니다.", "index.do", response);
+				} else {
+					jsResponse("오류가 발생하여 회원탈퇴를 실패하였습니다.", "index.do", response);
+				}
 			} else {
-				jsResponse("오류가 발생하여 회원탈퇴를 실패하였습니다.", "index.do", response);
+				//일반 회원 일 때, user db삭제
+				int delete_res = mpb.secession(user_id);
+				if (delete_res > 0) {
+					session.invalidate();
+					jsResponse("회원탈퇴가 완료되었습니다.", "index.do", response);
+				} else {
+					jsResponse("오류가 발생하여 회원탈퇴를 실패하였습니다.", "index.do", response);
+				}
 			}
 		} else {
-			// false면 경고창 출력
+			//비밀번호가 일치하지 않을 때
 			jsResponse("비밀번호가 일치하지 않습니다.", "secession.do", response);
 		}
 	}

@@ -35,6 +35,7 @@ public interface MyPageBiz {
 	public void TGAExcelCreate(HttpServletRequest request, List<TogetherApplyDto> tGAList, String filename);
 	public int secession(String user_id);
 	public int update_member(UserDto user);
+	public int secession_org_update(int org_num);
 }
 
 

@@ -174,4 +174,15 @@ public class MyPageDaoImpl implements MyPageDao {
 		return res;
 	}
 
+	@Override
+	public int secession_org_update(int org_num) {
+		int res = 0;
+		try {
+			res = sqlSession.update(NAMESPACE+"secession_org_update",org_num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }

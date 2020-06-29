@@ -19,6 +19,7 @@
 		<typeAlias type="com.mvc.jigulyeog.model.dto.DMChatDto" alias="DMChatDto"/>		
 		<typeAlias type="com.mvc.jigulyeog.model.dto.CommunityGuestbookDto" alias="CommunityGuestbookDto"/>		
 		<typeAlias type="com.mvc.jigulyeog.model.dto.CommunityNoticeDto" alias="CommunityNoticeDto"/>		
+		<typeAlias type="com.mvc.jigulyeog.model.dto.SubscribeDto" alias="SubscribeDto"/>		
 	</typeAliases>
 
 

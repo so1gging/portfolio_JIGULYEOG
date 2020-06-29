@@ -111,4 +111,11 @@
 		</set>
 		WHERE USER_ID = #{user_id}
 	</update>
+	
+	<update id="secession_org_update" parameterType="int">
+		UPDATE ORG
+		SET
+		ORG_PIC = NULL
+		WHERE ORG_NUM=#{org_num}
+	</update>
 </mapper>
