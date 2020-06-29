@@ -25,5 +25,6 @@ public interface OrgBiz {
 	int subscribe(int org_num, String user_id);
 	int subscribeCancle(int org_num, String user_id);
 	boolean subChk(Integer org_num, String user_id);
+	List<Object> getSubList(int org_num);
 
 }

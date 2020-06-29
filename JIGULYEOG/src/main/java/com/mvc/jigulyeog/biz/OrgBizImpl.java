@@ -112,4 +112,9 @@ public class OrgBizImpl implements OrgBiz{
 		return dao.subChk(org_num,user_id);
 	}
 
+	@Override
+	public List<Object> getSubList(int org_num) {
+		return dao.getSubList(org_num);
+	}
+
 }

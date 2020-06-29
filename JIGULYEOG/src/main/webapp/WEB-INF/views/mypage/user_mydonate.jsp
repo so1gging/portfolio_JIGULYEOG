@@ -118,9 +118,6 @@ body {
 													<h3 class="card-title">
 														<a href="projectdetail.do?pro_num=${p.pro_num }">${p.pro_title }</a>
 													</h3>
-													<p class="card-text">${p.pro_detail }</p>
-													<span class="donation-time mb-3 d-block">Last
-														donation 1w ago</span>
 													<div class="progress custom-progress-success">
 														<div class="progress-bar bg-success" role="progressbar"
 															style="width: ${percent}%" aria-valuenow="25"
@@ -160,7 +157,7 @@ body {
 										<c:forEach var="org" items="${orgList }">
 											<div class="card fundraise-item">
 												<a href="orgDetail.do?org_num=${org.org_num }"><img class="card-img-top"
-													src="${pageContext.request.contextPath}/resources/upload/images/org/${org.org_pic}"
+													src="${pageContext.request.contextPath}/resources/upload/images/user/${org.org_pic}"
 													alt="Image placeholder"></a>
 												<div class="card-body">
 													<h3 class="card-title">

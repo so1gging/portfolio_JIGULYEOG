@@ -32,4 +32,6 @@ public interface OrgDao {
 
 	boolean subChk(Integer org_num, String user_id);
 
+	List<Object> getSubList(int org_num);
+
 }

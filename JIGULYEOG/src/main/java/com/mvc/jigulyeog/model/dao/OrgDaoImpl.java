@@ -168,4 +168,15 @@ public class OrgDaoImpl implements OrgDao{
 		}
 		return (res==1)?true:false;
 	}
+
+	@Override
+	public List<Object> getSubList(int org_num) {
+		List<Object> subList = null;
+		try {
+			subList = sqlSession.selectList(NAMESPACE+"getSubList", org_num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return subList;
+	}
 }

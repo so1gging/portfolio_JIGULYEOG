@@ -9,6 +9,7 @@ public class UserDto {
 	private String user_addr;
 	private String user_pic;
 	private int user_status;
+	private SubscribeDto subscribe;
 	
 	public UserDto() {
 		super();
@@ -80,5 +81,11 @@ public class UserDto {
 		return "UserDto [user_id=" + user_id + ", user_pw=" + user_pw + ", user_name=" + user_name + ", user_nick="
 				+ user_nick + ", user_phone=" + user_phone + ", user_addr=" + user_addr + ", user_pic=" + user_pic
 				+ ", user_status=" + user_status + "]";
+	}
+	public SubscribeDto getSubscribe() {
+		return subscribe;
+	}
+	public void setSubscribe(SubscribeDto subscribe) {
+		this.subscribe = subscribe;
 	}
 }

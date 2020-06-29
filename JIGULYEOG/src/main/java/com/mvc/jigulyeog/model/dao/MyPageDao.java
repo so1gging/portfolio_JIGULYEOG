@@ -42,5 +42,7 @@ public interface MyPageDao {
 
 	int update_member(UserDto user);
 
+	int secession_org_update(int org_num);
+
 
 }

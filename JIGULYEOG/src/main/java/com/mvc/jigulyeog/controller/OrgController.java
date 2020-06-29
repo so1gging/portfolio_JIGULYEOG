@@ -134,8 +134,8 @@ public class OrgController {
 	public String org_myAcion(HttpSession session, Model model) {
 		UserDto user = (UserDto) session.getAttribute("user");
 		if (user != null) {
-			// 로그인이 된 상태일때
-			// 진행중인 프로젝트 리스트, 종료된 프로젝트 리스트 불러오기
+			//로그인이 된 상태일때
+			//진행중인 프로젝트 리스트, 종료된 프로젝트 리스트 불러오기
 			int org_num = user.getUser_status();
 			System.out.println(org_num);
 			List<ProjectDto> nowPList = ob.getNowPList(org_num);
@@ -146,9 +146,11 @@ public class OrgController {
 			System.out.println("nowp: " + nowP + ", endP: " + endP);
 			model.addAttribute("nowPList", nowPList);
 			model.addAttribute("endPList", endPList);
-			// 구독중인 회원 리스트 불러오기
-			// 보류...
-
+			
+			//구독중인 회원 리스트 불러오기
+			List<Object> subList = ob.getSubList(org_num);
+			model.addAttribute("subList",subList);
+			
 			return "/org/org_myaction";
 		} else {
 			// 로그인이 안된 상태일때

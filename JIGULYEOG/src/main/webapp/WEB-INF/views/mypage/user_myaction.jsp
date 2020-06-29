@@ -110,7 +110,6 @@ body {
 													<h3 class="card-title">
 														<a href="chungdetail.do?pet_no=${su.pet_no }">${su.pet_title }</a>
 													</h3>
-													<p class="card-text">${su.pet_content }</p>
 													<span class="fund-raised d-block">청원종료일 :
 														${su.pet_dead } </span>
 												</div>
@@ -228,7 +227,6 @@ body {
 												<a href="together_detail.do?tog_no=${tga.tog_no }"><img
 													class="card-img-top"
 													src="${pageContext.request.contextPath}/resources/upload/images/together/${tga.tog_image}"
-													
 													alt="Image placeholder"></a>
 												<div class="card-body">
 													<h3 class="card-title">

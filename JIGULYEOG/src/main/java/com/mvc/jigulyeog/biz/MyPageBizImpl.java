@@ -294,4 +294,10 @@ public class MyPageBizImpl implements MyPageBiz {
 		int res=dao.update_member(user);
 		return res;
 	}
+
+	@Override
+	public int secession_org_update(int org_num) {
+		int res=dao.secession_org_update(org_num);
+		return res;
+	}
 }
