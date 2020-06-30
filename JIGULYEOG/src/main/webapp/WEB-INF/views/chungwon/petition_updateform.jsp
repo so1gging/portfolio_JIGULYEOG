@@ -31,6 +31,54 @@
       font-family: 'Poppins','Jeju Gothic', serif;
     }
     </style>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+       
+    function getFormatDate(date){
+        var year = date.getFullYear();              //yyyy
+        var month = (1 + date.getMonth());          //M
+        month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+        var day = date.getDate();                   //d
+        day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+        return  year + '-' + month + '-' + day;     //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+    }
+    
+    $(function(){
+		$("#submitBtn").click(function(){
+			var pet_title = $("#pet_title").val();
+			var pet_content =$("#pet_content").val();
+			var pet_person = $("#pet_person").val();
+			var pet_dead = $("#pet_dead").val();
+			
+			var today = new Date();
+			today = getFormatDate(today);
+			
+			if(pet_title == "" || pet_title == null){
+				alert('청원 제목이 입력되지않았습니다.');
+				return false;
+			}
+			
+			if (pet_content==""){
+			 	alert('청원 내용이 입력되지 않았습니다.');
+			 	return false;
+			}
+			
+			if(pet_person == ""){
+				alert("마감 인원을 설정하지 않았습니다.");
+				return false;
+			}
+					
+			if(today == pet_dead || today > pet_dead){
+				alert('마감기한은 오늘 이후여야합니다.');
+				return false;
+			}
+	
+			$("#submitForm").submit();	
+			
+		});
+			
+	});
+    </script>
     
   </head>
  <body>
@@ -66,52 +114,44 @@
 
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="chungupdateres.do" method="post" enctype="multipart/form-data">
+          <form action="chungupdateres.do" method="post" enctype="multipart/form-data" id="submitForm">
           	<input type="hidden" name="pet_no" value=${dto.pet_no }>
             <div class="form-group">
               <!--청원 타이틀-->
               <h4 class="font">청원 제목</h4>
               <input type="text" class="form-control px-3 py-3" placeholder="청원 제목을 입력하세요" 
-              style="width:1000px;font-family: 'Jeju Gothic', serif;" value=${dto.pet_title } name="pet_title">
+              style="width:1000px;font-family: 'Jeju Gothic', serif;" value=${dto.pet_title } name="pet_title" id="pet_title">
             </div><br>
-
-
-            <!--<div class="mb-3">
-              <h4 class="font"></h4>
-              <input type="text" class="form-control px-3 py-1" style="width:1000px;  display: inline-block;" ><br>
-              <input type="button" value="동의" class="btn btn-primary py-3 px-5">
-            </div>-->
-
 
             <!--청원 상세 내용-->
             <div class="form-group">
               <h4 class="font">청원 내용</h4>
-              <textarea name="pet_content" id="" cols="30" rows="17" class="form-control px-3 py-3" placeholder="청원 내용을 입력하세요"
-              style="width:1000px; font-family: 'Jeju Gothic', serif;"  name="pet_content">${dto.pet_content }</textarea>
+              <textarea name="pet_content" id="pet_content" cols="30" rows="17" class="form-control px-3 py-3" placeholder="청원 내용을 입력하세요"
+              style="width:1000px; font-family: 'Jeju Gothic', serif;">${dto.pet_content }</textarea>
             </div><br>
 
             <!--검색 태그-->
             <div class="form-group">
               <h4 class="font">참조 링크</h4>
               <span><input type="text"  class="form-control px-3 py-3" style="width:1000px; font-family: 'Jeju Gothic', serif;"
-                placeholder="관련있는 링크를 참조하세요" name="pet_link" value=${dto.pet_link }></span><br>
+                placeholder="관련있는 링크를 참조하세요" name="pet_link" id="pet_link" value=${dto.pet_link }></span><br>
             </div>
 
             <!--사진-->
             
             <div>
             	<h4>청원 마감일</h4>
-            	<input type="date" style="width:400px" name="pet_dead" value=${dto.pet_dead }>
+            	<input type="date" style="width:400px" name="pet_dead" id="pet_dead" value=${dto.pet_dead }>
             </div><br>
             
             <div>
             	<h4>청원 인원</h4>
-            	<input type="text" style="width:400px" name="pet_person" value=${dto.pet_person }>
+            	<input type="text" style="width:400px" name="pet_person" id="pet_person" value=${dto.pet_person }>
             </div><br><br>
 
             <!--완료 , 취소-->
             <div class="form-group">
-              <input type="submit" value="수정 완료" class="btn btn-success py-2 px-5"  style="font-family: 'Jeju Gothic', serif;" > &nbsp;
+              <input type="submit" value="수정 완료" class="btn btn-success py-2 px-5"  style="font-family: 'Jeju Gothic', serif;" id="submitBtn"> &nbsp;
               <input type="button" value="수정 취소" class="btn btn-primary py-2 px-5" style="font-family: 'Jeju Gothic', serif;" onclick="location.href='chungdetail.do?pet_no=${dto.pet_no}'">
             </div>
           </form>
