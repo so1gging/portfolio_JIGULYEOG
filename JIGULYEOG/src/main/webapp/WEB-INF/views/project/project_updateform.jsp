@@ -176,7 +176,7 @@
 	                  CKEDITOR.replace('p_content'
 	                                  , {
 	                	  height: 500,
-	                	  filebrowserUploadUrl:'ckeditorFileupload.do'
+	                	  filebrowserUploadUrl:'ckeditorProjectFileupload.do'
 	                                  });
 	              </script>
 	            </td>
