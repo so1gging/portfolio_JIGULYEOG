@@ -46,35 +46,7 @@
   </head>
   <body>
 	
-<%
-/*
-	try {
-	String driver="oracle.jdbc.driver.OracleDriver";  
-	Class.forName(driver);  //클래스명을 집어넣어주면 자동으로 객체를 만들어주는 함수.
-	String url="jdbc:oracle:thin:@localhost:1521:xe";  
-	String userName="JIGULYEOG";  
-	String passWord="JIGULYEOG"; 
-	Connection con = DriverManager.getConnection(url , userName , passWord);
-	Statement st = con.createStatement();
-	//DB에 데이터 넣기
-	String sql="insert into general (gname,gage,gmoney) values ( '이순신' , 36 , 650 )";
-	st.executeUpdate(sql);
-	String sql2="select * from general"; //명령문 추가할 때 마다 변수명을 달리해줘야한다! 
-	ResultSet rs = st.executeQuery(sql2);
-	while(rs.next()){
-	    String s = rs.getString("gname");
-	    long n1 = rs.getLong("gage");
-	    long n2 = rs.getLong("gmoney");
-	    out.write(s+" "+n1+" "+n2+"<br/>");  //데이터를 요청하는 클라이언트에게 보내준다.
-	}
-	con.close();
-	st.close();
-	
-	} catch (Exception e) {
-	          System.out.println(e);
-	}
-*/
-%>
+
 
 	
 	
@@ -149,13 +121,9 @@
 	                    	</tr> 
 	                    	
 	                    	<tr>
-	                    		<th colspan="2" style="width: 50px;">내용</th>              		
+	                    		<th>내용</th>   
+	                    		<td>${dto.tog_content }</td>           		
 	                    	</tr>  
-	                    	<tr>
-	                    		<td style="padding: 35px;">
-			                    		${dto.tog_content }	
-	                    		</td>
-	                    	</tr>                  	           	
 	                    </table>
                       </form>
                   </div>
