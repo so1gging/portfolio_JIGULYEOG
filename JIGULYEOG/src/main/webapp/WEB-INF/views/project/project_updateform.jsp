@@ -135,7 +135,6 @@
     <form action="projectupdate.do" method="post" id="submitForm" enctype="multipart/form-data">
     	<input type="hidden" value="${project.pro_num }" name="pro_num">
     	<input type="hidden" value="${project.pro_nowmoney }" name="pro_nowmoney">
-    	${project.pro_success}
     	<input type="hidden" value="${project.pro_success}" name="pro_success">
     	<input type="hidden" value="${user.user_id }" name="user_id">
 	      <table class="table">
