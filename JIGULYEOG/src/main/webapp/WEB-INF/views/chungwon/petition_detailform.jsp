@@ -53,13 +53,18 @@
     function insertcomment() {
         var sig_content = $('#sig_content').val();
         var pet_no = $('#pet_no').val();
+        var sig_id = $('#sig_id').val();
         
-        console.log(sig_content, pet_no);
+        
         
         var commentVal = {
            "sig_content" : sig_content,
            "pet_no" : pet_no
         };
+        
+        if(sig_id == null)
+        	
+        	
         if ((sig_content == null || sig_content == "")) {
            alert("글을 작성해 주세요");
         } else {
@@ -216,7 +221,7 @@
         <div style="width:900px;">
           <h4>청원 내용</h4>
         <hr>
-          <pre style="overflow: auto; white-space: pre-wrap;">${dto.pet_content }</pre>
+          <pre style="overflow: auto; white-space: pre-wrap; word-wrap: break-word;">${dto.pet_content }</pre>
           <!--해쉬태그-->
          <div>
           	<a href="${dto.pet_link }">${dto.pet_link }</a>
@@ -232,10 +237,14 @@
           </div> 
         </div>
         <input type="hidden" value="${dto.pet_no}" name="pet_no" id="pet_no">
+        <c:if test="${ dto.user_id != user.user_id}">
         <div class="form-control px-3 py-3" style="width:800px;">
-          <textarea rows="3" cols="90" placeholder="댓글을 입력하세요" name="sig_content" id="sig_content"></textarea>
+        
+          <textarea rows="3" cols="90" placeholder="청원글을 입력하세요" name="sig_content" id="sig_content"></textarea>
           <input type="button" value="동의" class="btn btn-primary py-3 px-5" onclick="insertcomment();">
+          
         </div><br>
+        </c:if>
           </form>
         
         
