@@ -142,6 +142,8 @@ public class MemberController {
           if(res>0) {
              try {
                 session.setAttribute("user", user);
+                //수정1
+                session.setAttribute("snsChk", true);
                 dispatch("index.do", request, response);
              } catch (IOException e) {
                 e.printStackTrace();
@@ -156,6 +158,7 @@ public class MemberController {
        }else {
           try {
              session.setAttribute("user", check);
+             session.setAttribute("snsChk", true);
              dispatch("index.do", request, response);
           } catch (IOException e) {
              e.printStackTrace();
@@ -198,6 +201,7 @@ public class MemberController {
            if(res>0) {
               try {
                  session.setAttribute("user", user);
+                 session.setAttribute("snsChk", true);
                  dispatch("index.do", request, response);
               } catch (IOException e) {
                  e.printStackTrace();
@@ -212,6 +216,7 @@ public class MemberController {
         }else {
            try {
               session.setAttribute("user", check);
+              session.setAttribute("snsChk", true);
               dispatch("index.do", request, response);
            } catch (IOException e) {
               e.printStackTrace();

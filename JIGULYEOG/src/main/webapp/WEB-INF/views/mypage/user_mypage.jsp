@@ -1,6 +1,7 @@
 <%@page import="com.mvc.jigulyeog.model.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,10 +76,13 @@
                   <th>닉네임</th>
                   <td><input type="text" value="${user.getUser_nick() }" class="form-control" readonly></td>
                 </tr>
-                <tr>
-                  <th>전화번호</th>
-                  <td><input type="text" value="${user.getUser_phone() }" class="form-control" readonly></td>
-                </tr>
+                <c:if test="${empty snsCheck }">
+	                <tr>
+	                  <th>전화번호</th>
+	                  <td><input type="text" value="${user.getUser_phone() }" class="form-control" readonly></td>
+	                </tr>
+                               
+                </c:if>
                 <tr>
                   <th>주소</th>
                   <td><input type="text" value="${user.getUser_addr() }" class="form-control" readonly></td>

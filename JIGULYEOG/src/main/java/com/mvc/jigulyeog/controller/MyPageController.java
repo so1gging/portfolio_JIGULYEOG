@@ -74,9 +74,12 @@ public class MyPageController {
 	}
 
 	@RequestMapping("/myPage.do")
-	public String user_mypage() {
+	public String user_mypage(HttpServletRequest request,Model model) {
 		logger.info("[user_mypage Page]");
-
+		
+		if(request.getSession().getAttribute("snsChk")!=null) {
+			model.addAttribute("snsCheck","true");
+		}
 		return "/mypage/user_mypage";
 	}
 
@@ -304,8 +307,12 @@ public class MyPageController {
 	}
 
 	@RequestMapping("/user_updateform.do")
-	public String user_updateform() {
+	public String user_updateform( HttpServletRequest request,Model model) {
 		logger.info("[user_updateform Page]");
+		
+		if(request.getSession().getAttribute("snsChk")!=null) {
+			model.addAttribute("snsCheck","true");
+		}
 
 		return "/mypage/user_updateform";
 	}

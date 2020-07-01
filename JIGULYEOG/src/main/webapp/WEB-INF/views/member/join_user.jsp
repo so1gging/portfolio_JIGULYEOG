@@ -166,12 +166,10 @@
   						contentType: "application/json; charset=UTF-8",
   						success : function(data) {
   							if(data.check==true){
-  								//사용할 수 있는 닉네임~!!
   								$('#phone_check').text('사용가능한 전화번호 입니다.');
 								$('#phone_check').css('color', 'blue');
 								$("#usercheck").attr("disabled", false);
   							}else{
-  								//중복닉네임~
   								$('#phone_check').text('중복된 전화번호 입니다.');
   								$('#phone_check').css('color', 'red');
   								$("#usercheck").attr("disabled", true);
