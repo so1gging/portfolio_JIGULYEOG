@@ -138,6 +138,7 @@ public class MemberController {
       
        if(check == null) {
           user.setUser_id(userInfo);
+          user.setUser_pw("1234");
           int res = mb.insertSNS(user);
           if(res>0) {
              try {
