@@ -119,7 +119,7 @@ public class ChungwonController {
 	//fileupload
 	@RequestMapping("/chungwriteres.do")
 	public String chungwonInsert(HttpServletRequest request , Model model,ChungwonDto dto,
-									MultipartFile file,HttpSession session) {
+									MultipartFile file) {
 		
 		logger.info("INSERT CHUNHG");
 		
@@ -209,10 +209,56 @@ public class ChungwonController {
 	
 	//update
 	@RequestMapping("/chungupdateres.do")
-	public String chungUpdateres(ChungwonDto dto) {
+	public String chungUpdateres(ChungwonDto dto,MultipartFile file, HttpServletRequest request) {
 		
 		logger.info("UPDATE RES");
+		String filename = file.getOriginalFilename();
+		dto.setPet_photo(filename);
+		
+		InputStream inputStream = null;
+		OutputStream outputStream = null;
+		
+		try {
+			inputStream = file.getInputStream();
+			
+			String path = WebUtils.getRealPath(request.getSession().getServletContext(),"resources/upload/images/chungwon");
+			
+			System.out.println("업로드될 실제 경로  : "+path );
+			
+			File storage = new File(path);
+			
+			if(!storage.exists()) {
+				storage.mkdirs();
+			}
+			
+			File newfile = new File(path+"/"+filename);
+			if(!newfile.exists()) {
+				newfile.createNewFile();
+			}
+			
+			outputStream = new FileOutputStream(newfile);
+			
+			int read = 0;
+			
+			byte[] b = new byte[(int)file.getSize()];
+			
+			while((read=inputStream.read(b)) != -1) {
+				outputStream.write(b,0,read);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			inputStream.close();
+			outputStream.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		int res = biz.chungUpdate(dto);
+		
 		if(res>0) {
 			return "redirect:chungdetail.do?pet_no="+dto.getPet_no();
 		}else {

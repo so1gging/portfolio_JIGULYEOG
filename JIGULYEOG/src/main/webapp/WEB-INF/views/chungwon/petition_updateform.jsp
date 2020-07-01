@@ -49,6 +49,7 @@
 			var pet_content =$("#pet_content").val();
 			var pet_person = $("#pet_person").val();
 			var pet_dead = $("#pet_dead").val();
+			var file = $("#file").val();
 			
 			var today = new Date();
 			today = getFormatDate(today);
@@ -61,6 +62,11 @@
 			if (pet_content==""){
 			 	alert('청원 내용이 입력되지 않았습니다.');
 			 	return false;
+			}
+			
+			if(file == "" || file == null){
+				alert('대표 이미지를 설정해주세요.');
+				return false;
 			}
 			
 			if(pet_person == ""){
@@ -136,8 +142,13 @@
               <span><input type="text"  class="form-control px-3 py-3" style="width:1000px; font-family: 'Jeju Gothic', serif;"
                 placeholder="관련있는 링크를 참조하세요" name="pet_link" id="pet_link" value=${dto.pet_link }></span><br>
             </div>
-
+            
             <!--사진-->
+            <div>
+              <h4 class="font">사진 첨부</h4>
+              <input type="file"  style="width:400px" placeholder="사진을 첨부하세요" name="file" id="file" value=${dto.pet_photo }>
+            </div><br>
+            
             
             <div>
             	<h4>청원 마감일</h4>
