@@ -50,13 +50,9 @@
 	<!-- 게시판 update -->
 	<update id="update" parameterType="ChungwonDto">
 		UPDATE CHUNGWON 
-		SET PET_TITLE=#{pet_title} ,PET_CONTENT=#{pet_content},PET_LINK=#{pet_link},PET_DEAD=#{pet_dead},PET_PERSON=#{pet_person}
+		SET PET_TITLE=#{pet_title} ,PET_CONTENT=#{pet_content},PET_PHOTO=#{pet_photo},PET_LINK=#{pet_link},PET_DEAD=#{pet_dead},PET_PERSON=#{pet_person}
 		WHERE PET_NO=#{pet_no}
 	</update>
-	
-	
-
-
 	
 	<!-- pasing -->
 	<select id="selectCount" resultType="int" parameterType="String">
