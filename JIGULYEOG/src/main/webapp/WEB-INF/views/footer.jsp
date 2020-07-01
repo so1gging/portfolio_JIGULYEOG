@@ -6,7 +6,6 @@
         <div class="col-md-6 col-lg-4">
           <h3 class="heading-section">About Us</h3>
           <p class="mb-5">지구력(지구를 지키는 세력)은 국내 환경분야 <br>비영리 민간단체 공공 데이터를 활용하여 환경 <br>단체의 통합정보를 제공하고, 해당단체가 <br>진행하는 프로젝트를 후원 및 소통할 수 있는 <br>참여형 환경 온라인 플랫폼이다.</p>
-          <p><a href="#" class="btn btn-primary px-4 py-3">참 여 하 기</a></p>
         </div>
 
         <div class="col-md-6 col-lg-4" style="padding-left: 60px;">

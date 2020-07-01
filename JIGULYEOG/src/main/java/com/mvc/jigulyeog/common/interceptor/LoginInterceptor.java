@@ -22,7 +22,9 @@ public class LoginInterceptor implements HandlerInterceptor{
 		logger.info("[interceptor] : preHandle ");
 		response.setContentType("text/html; charset=utf-8");
 	
-		if(request.getRequestURI().contains("/paypage.do") || request.getRequestURI().contains("/dmlistadd.do") || request.getRequestURI().contains("/subscribe.do")) {
+		if(request.getRequestURI().contains("/paypage.do") 
+				|| request.getRequestURI().contains("/dmlistadd.do") 
+				|| request.getRequestURI().contains("/subscribe.do")) {
 			if(request.getSession().getAttribute("user")==null) {
 				PrintWriter out = response.getWriter();
 				
