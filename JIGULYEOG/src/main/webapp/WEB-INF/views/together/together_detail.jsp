@@ -157,7 +157,7 @@
 	                 	</div> 
 	                 	<div class="col-md-8">
 	                      <div class="form-group"  style="width: 85%; display: inline-block;">
-	                        <textarea name="" id="message" cols="30" rows="5" class="form-control">${dto.tog_ps}</textarea>
+	                        <textarea name="" id="message" cols="30" rows="5" class="form-control" readonly>${dto.tog_ps}</textarea>
 	                      </div>	                 	             	
 	                 	</div>   
                       </div>

@@ -157,7 +157,7 @@
                   		</tr>
                   		<tr>
                   			<th style="width:200px;">기한</th>
-                  			<td><input type="date" class="form-control" id="tog_dead" name="tog_dead" style="width: 200px; display: inline-block;" value="<fmt:formatDate value='${dto.tog_dead}' pattern='yyyy/MM/dd'/>"></td>
+                  			<td><input type="date" class="form-control" id="tog_dead" name="tog_dead" style="width: 200px; display: inline-block;" value="<fmt:formatDate value='${dto.tog_dead}' pattern='yyyy-MM-dd'/>"></td>
                   		</tr>
                   		<tr>
                   			<th style="width:200px;">내용</th>
