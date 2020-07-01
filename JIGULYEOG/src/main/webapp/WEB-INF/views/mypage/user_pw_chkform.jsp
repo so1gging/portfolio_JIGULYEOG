@@ -87,7 +87,7 @@ body {
 						<div class="form-group mypagebox">
 							<input type="password"
 								class="form-control px-3 py-2 mypage_input"
-								placeholder="비밀번호를 입력하세요" name="user_pw"  style="width: 500px;">
+								placeholder="비밀번호를 입력하세요(SNS 첫 로그인 시 비밀번호는 1234입니다.)" name="user_pw"  style="width: 500px;">
 						</div>
 						<div class="form-group">
 							<input type="submit" value="확인" class="btn btn-success py-3 px-5"

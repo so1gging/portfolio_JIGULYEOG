@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -332,13 +333,16 @@ body {
 								id="user_nick" value="${user.getUser_nick() }">
 							<div class="check_text" id="nick_check"></div>
 						</div>
-						<div class="form-group joinbox">
-							<input type="tel" class="form-control px-3 py-3 join_input"
-								placeholder="Phone ('-'없이 번호만 입력해주세요)" style="width: 500px;"
-								name="user_phone" id="user_phone"
-								value="${user.getUser_phone() }">
-							<div class="check_text" id="phone_check"></div>
-						</div>
+						<c:if test="${empty snsCheck }">
+							<div class="form-group joinbox">
+								<input type="tel" class="form-control px-3 py-3 join_input"
+									placeholder="Phone ('-'없이 번호만 입력해주세요)" style="width: 500px;"
+									name="user_phone" id="user_phone"
+									value="${user.getUser_phone() }">
+								<div class="check_text" id="phone_check"></div>
+							</div>
+											
+						</c:if>
 						<div class="form-group joinbox">
 							<input type="text" class="form-control px-3 py-3 join_input"
 								placeholder="Address" style="width: 400px;" name="user_addr"
