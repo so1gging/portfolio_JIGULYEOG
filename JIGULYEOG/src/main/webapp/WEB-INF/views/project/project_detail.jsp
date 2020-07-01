@@ -35,6 +35,10 @@
       body{
         font-family: 'Poppins','Jeju Gothic', serif;
       }
+      .project-detail img{
+      	max-width:700px;
+      }
+
       
       
     </style>
