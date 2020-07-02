@@ -354,7 +354,7 @@
 
               <div class="col-md-8">
               	<div style="color:#28a745;">환경 프로젝트</div>
-                <h2>${project.pro_title }</h2>
+                <h2 style="overflow: hidden; white-space: pre-wrap; word-wrap: break-word;">${project.pro_title }</h2>
                 <br>
                 <p class="mb-4"><img src="${pageContext.request.contextPath}/resources/upload/images/project/${project.pro_image}" alt="" class="img-fluid" style="width: 500px; height: 460px; "></p>
 

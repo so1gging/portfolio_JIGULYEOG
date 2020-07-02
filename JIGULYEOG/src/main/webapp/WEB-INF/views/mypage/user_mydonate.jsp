@@ -94,7 +94,9 @@ body {
 										<div class="card fundraise-item">
 											<div class="card-body">
 												<h3 class="card-title">
-													<a href="projectlist.do">후원한 프로젝트가 없습니다.<br>프로젝트에 후원해볼까요?</a>
+													<a href="projectlist.do">후원한 프로젝트가 없습니다.<br>프로젝트에
+														후원해볼까요?
+													</a>
 												</h3>
 											</div>
 										</div>
@@ -111,7 +113,8 @@ body {
 												</c:otherwise>
 											</c:choose>
 											<div class="card fundraise-item">
-												<a href="projectdetail.do?pro_num=${p.pro_num }"><img class="card-img-top"
+												<a href="projectdetail.do?pro_num=${p.pro_num }"><img
+													class="card-img-top"
 													src="${pageContext.request.contextPath}/resources/upload/images/project/${p.pro_image}"
 													alt="Image placeholder"></a>
 												<div class="card-body">
@@ -124,8 +127,7 @@ body {
 															aria-valuemin="0" aria-valuemax="100"></div>
 													</div>
 													<span class="fund-raised d-block">후원된 금액:
-														${p.pro_nowmoney }, 목표금액:
-														${p.pro_goalmoney }</span>
+														${p.pro_nowmoney }, 목표금액: ${p.pro_goalmoney }</span>
 												</div>
 											</div>
 										</c:forEach>
@@ -148,7 +150,8 @@ body {
 										<div class="card fundraise-item">
 											<div class="card-body">
 												<h3 class="card-title">
-													<a href="org.do">구독한 단체가 없습니다.<br>단체를 구독해볼까요?</a>
+													<a href="org.do">구독한 단체가 없습니다.<br>단체를 구독해볼까요?
+													</a>
 												</h3>
 											</div>
 										</div>
@@ -156,12 +159,24 @@ body {
 									<c:otherwise>
 										<c:forEach var="org" items="${orgList }">
 											<div class="card fundraise-item">
-												<a href="orgDetail.do?org_num=${org.org_num }"><img class="card-img-top"
-													src="${pageContext.request.contextPath}/resources/upload/images/user/${org.org_pic}"
-													alt="Image placeholder"></a>
+												<c:choose>
+													<c:when test="${org.org_pic eq null }">
+														<a href="orgDetail.do?org_num=${org.org_num}">
+														<img class="card-img-top"
+															src="${pageContext.request.contextPath}/resources/images/personal_img/no-image-icon.PNG"
+															alt="Image placeholder" height="300px"></a>
+													</c:when>
+													<c:otherwise>
+														<a href="orgDetail.do?org_num=${org.org_num}"><img
+															class="card-img-top"
+															src="${pageContext.request.contextPath}/resources/upload/images/user/${org.org_pic}"
+															alt="Image placeholder" height="300px"> </a>
+
+													</c:otherwise>
+												</c:choose>
 												<div class="card-body">
 													<h3 class="card-title">
-														<a href="#">${org.org_name }</a>
+														<a href="orgDetail.do?org_num=${org.org_num}">${org.org_name }</a>
 													</h3>
 												</div>
 											</div>
@@ -173,10 +188,9 @@ body {
 					</div>
 				</div>
 			</div>
-			<br>
-			<br>
+			<br> <br>
 
-<!--
+			<!--
 			<div class="row">
 				<h1>새소식</h1>
 				<table class="table table-hover">
@@ -238,7 +252,7 @@ body {
 				</table>
 			</div>
 -->
-<!-- 
+			<!-- 
 			페이징
 			<div style="width: 200px; margin: 0px auto;">
 				<nav aria-label="Page navigation">
@@ -258,10 +272,10 @@ body {
 				</nav>
 
 			</div>
--->	
+-->
 		</div>
 	</div>
-	
+
 	<!-- END section -->
 
 
