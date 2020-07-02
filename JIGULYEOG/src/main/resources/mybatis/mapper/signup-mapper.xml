@@ -34,4 +34,9 @@
 		WHERE SIG_NO = #{sig_no}
 	</delete>
 	
+	<select id="insertChk" parameterType="SignUpDto" resultType="SignUpDto">
+		SELECT * 
+		FROM SIGN_UP 
+		WHERE USER_ID = #{user_id} AND PET_NO=#{pet_no}
+	</select>
 </mapper>

@@ -41,10 +41,19 @@ public class SignUpController {
 		
 		String user_id = ((UserDto)request.getSession().getAttribute("user")).getUser_id();
 		System.out.println("user_id : " + user_id);
+		int res;
 		sig_content.setUser_id(user_id);
 		
+		boolean chk = biz.insertChk(sig_content);
+		if(chk==true) {
+			res=-1;
+		}else {
+			res = biz.insert(sig_content);
+		}
+		
+		
 /////////////////////////////(끝)login/회원가입 합칠 때 만든 코드 /새로 하려면지워두 됨 
-		int res = biz.insert(sig_content);
+		
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
 		map.put("code",res);
