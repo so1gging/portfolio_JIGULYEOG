@@ -144,7 +144,7 @@
       <c:if test="${!empty user }">
       <a href="together_writeform.do"><button class="btn btn-success" style="float: right;" >작성</button></a>
       </c:if>
-      <br>
+      <br><br>
     </div>
     	<!------- PAGING START -------->
     	

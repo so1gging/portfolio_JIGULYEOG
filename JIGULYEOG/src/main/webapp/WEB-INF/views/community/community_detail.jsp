@@ -192,7 +192,7 @@
         </div>
         <div class="col-lg-4 pr-lg-5">
             <span class="featured-text mb-3 d-block">현재 진행중인 프로젝트</span>
-            <h2>${project.pro_title }</h2>
+            <h2 style="overflow: hidden; white-space: pre-wrap; word-wrap: break-word;">${project.pro_title }</h2>
             <span class="donation-time mb-3"><fmt:formatDate value="${project.pro_write_date}" pattern="yyyy/MM/dd"/></span>
             <div class="progress custom-progress-success">
 			   <fmt:parseNumber var="percent" integerOnly="true" value="${project.pro_nowmoney*100/project.pro_goalmoney }"/>

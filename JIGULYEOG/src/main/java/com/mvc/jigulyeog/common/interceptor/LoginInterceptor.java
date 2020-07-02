@@ -24,7 +24,8 @@ public class LoginInterceptor implements HandlerInterceptor{
 	
 		if(request.getRequestURI().contains("/paypage.do") 
 				|| request.getRequestURI().contains("/dmlistadd.do") 
-				|| request.getRequestURI().contains("/subscribe.do")) {
+				|| request.getRequestURI().contains("/subscribe.do")
+				|| request.getRequestURI().contains("/together_apply.do")) {
 			if(request.getSession().getAttribute("user")==null) {
 				PrintWriter out = response.getWriter();
 				

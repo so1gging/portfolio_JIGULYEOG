@@ -137,7 +137,16 @@
 					
 					</c:when>
 				</c:choose>
-
+		
+      </div>
+      <div class="container">
+      	 <c:if test="${!empty user }">
+      	<c:if test="${user.user_status ne 0 }">
+	      <div style="text-align: right;">
+	        <input type="button" class="btn btn-success" onclick="location.href='projectwriteform.do'" value="글쓰기">
+	      </div>      	
+      	</c:if>
+      </c:if>
       </div>
 
 	<!-- PAGE MAKER PART -->
@@ -173,13 +182,7 @@
         </nav>
       </div>
       
-      <c:if test="${!empty user }">
-      	<c:if test="${user.user_status ne 0 }">
-	      <div style="text-align: right;">
-	        <input type="button" class="btn btn-success" onclick="location.href='projectwriteform.do'" value="글쓰기">
-	      </div>      	
-      	</c:if>
-      </c:if>
+     
 
     </div>
     <!-- ------------------------- -->

@@ -93,7 +93,7 @@ body {
 		<div class="container" style="text-align: center;">
 			<div class="row block-9">
 				<div class="col-md-6 pr-md-6" style="margin: 0 auto;">
-					<form action="org.do" method="get" id="searchForm">
+					<form action="orgSearch.do" method="get" id="searchForm">
 						<div class="form-group input-group">
 							<input type="text" id="searchKeyword" name="keyword"
 								class="form-control px-3 py-2" placeholder="단체명 또는 주소를 입력하세요."> <input

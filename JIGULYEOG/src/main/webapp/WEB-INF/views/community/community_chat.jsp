@@ -180,11 +180,11 @@
                 </div>
 
                 <!--참가자-->
-                <div class="chat_member" style="width: 250px; float: left;"> 
+                <div class="chat_member" style="width: 24%; float: left;"> 
                     <div class="chat_top">
                         <label id="usercount" style="padding-top:10px; color:white; font-weight:bold;  ">참가자</label> 
                     </div> 
-                    <ul id="userlist">                        
+                    <ul id="userlist" style="text-align:center; padding:0;">                        
                     </ul> 	
                 </div>
             

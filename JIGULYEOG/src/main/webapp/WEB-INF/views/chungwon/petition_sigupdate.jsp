@@ -80,11 +80,11 @@ div.button input{
   </div>
   <div class="form-control px-3 py-3">
  	
-	 <textarea rows="5" cols="20" name="sig_content">${sig.sig_content }</textarea>
+	 <textarea rows="5" cols="50" name="sig_content" class="form-control">${sig.sig_content }</textarea>
 	</div><br>
 	<div class="col text-center">
-	<input type="submit" value="수정 완료">
-	<input type="button" value="수정 취소" onclick="button();">
+	<input type="submit" value="수정 완료" class="btn btn-success py-2 px-5">
+	<input type="button" value="수정 취소" onclick="button();" class="btn btn-success py-2 px-5">
 	</div>
 	</form>
 

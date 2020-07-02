@@ -111,7 +111,7 @@
     
     //댓글 수정시 popup창
     function updateBtn(sig_no){
-    	window.open("sigupdate.do?sig_no="+sig_no,"sugUpdate","width=400,height=300");
+    	window.open("sigupdate.do?sig_no="+sig_no,"sugUpdate","width=500,height=380");
     }
     
     //댓글 삭제 ajax
@@ -303,11 +303,11 @@
 						<input type="hidden" value="${dto.pet_no}" name="pet_no"
 							id="pet_no">
 						<c:if test="${dto.user_id != user.user_id }">
-									<div class="form-control px-3 py-3" style="width: 800px;">
+									<div class="form-control px-3 py-3" style="width: 900px; text-align:right;">
 										<textarea rows="3" cols="90" placeholder="청원글을 입력하세요"
-											name="sig_content" id="sig_content"></textarea>
+											name="sig_content" id="sig_content" class="form-control"></textarea>
 										<input type="button" value="동의"
-											class="btn btn-primary py-3 px-5" onclick="insertcomment();">
+											class="btn btn-primary py-3 px-5" onclick="insertcomment();" style="margin-top: 10px;">
 									</div>
 									<br>
 						</c:if>
@@ -321,16 +321,19 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach items="${list }" var="sig">
-								<div style="width: 800px;">
+								<div style="width: 900px;">
 									<div>
 										<hr>
 										<p id="sig_id">${sig.user_id }</p>
 										<p>${sig.sig_content }</p>
 										<c:if test="${ sig.user_id == user.user_id}">
-											<input type="button" value="수정"
+											<div style="text-align:right;">
+											<input class="btn btn-success py-2 px-5" type="button" value="수정"
 												onclick="updateBtn(${sig.sig_no});">
-											<input type="button" value="삭제"
+											<input type="button" value="삭제" class="btn btn-success py-2 px-5"
 												onclick="deleteBtn(${sig.sig_no});">
+											
+											</div>
 										</c:if>
 
 									</div>

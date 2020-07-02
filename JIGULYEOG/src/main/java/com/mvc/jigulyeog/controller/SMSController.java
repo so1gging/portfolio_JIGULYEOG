@@ -68,8 +68,8 @@ public class SMSController {
 			+ "&sphone2="+base64Encode(sms.getSphone2())
 			+ "&sphone3="+base64Encode(sms.getSphone3())
 			+"&mode="+base64Encode("1")
-			+"&smsType=S"
-			+"&testflag="+base64Encode("Y");
+			+"&smsType=S";
+//			+"&testflag="+base64Encode("Y");
 			
 			// For Post only - Start
 			con.setDoOutput(true);
