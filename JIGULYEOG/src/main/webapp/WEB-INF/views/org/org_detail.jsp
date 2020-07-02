@@ -230,8 +230,15 @@ body {
 									</c:when>
 									<c:otherwise>
 										<c:forEach var="p" items="${pList }">
-											<fmt:parseNumber var="percent" integerOnly="true"
-												value="${p.pro_nowmoney*100/p.pro_goalmoney }"></fmt:parseNumber>
+											<c:choose>
+												<c:when test="${p.pro_nowmoney ==0 }">
+													<c:set var="percent" value="0"></c:set>
+												</c:when>
+												<c:otherwise>
+													<fmt:parseNumber var="percent" integerOnly="true"
+														value="${p.pro_nowmoney*100/p.pro_goalmoney }"></fmt:parseNumber>
+												</c:otherwise>
+											</c:choose>
 											<div class="card fundraise-item">
 												<a href="projectdetail.do?pro_num=${p.pro_num }"><img
 													class="card-img-top"
@@ -241,9 +248,6 @@ body {
 													<h3 class="card-title">
 														<a href="projectdetail.do?pro_num=${p.pro_num }">${p.pro_title }</a>
 													</h3>
-													<p class="card-text">${p.pro_detail }</p>
-													<span class="donation-time mb-3 d-block">Last
-														donation 1w ago</span>
 													<div class="progress custom-progress-success">
 														<div class="progress-bar bg-success" role="progressbar"
 															style="width: ${percent}%" aria-valuenow="25"
