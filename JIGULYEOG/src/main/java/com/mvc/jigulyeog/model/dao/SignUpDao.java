@@ -14,4 +14,5 @@ public interface SignUpDao {
 	public SignUpDto signUpOne(int sig_no);
 	public int sigUpdate(SignUpDto dto);
 	public int sigDelete(SignUpDto dto);
+	public boolean insertChk(SignUpDto dto);
 }

@@ -113,7 +113,7 @@
           </div>
 
           <div class="sns" >
-            <a href="https://kauth.kakao.com/oauth/authorize?client_id=132242b58385527b63dadb95d6f63f35&redirect_uri=http://localhost:8787/jigulyeog/kakaoLogin.do&response_type=code">
+            <a href="https://kauth.kakao.com/oauth/authorize?client_id=132242b58385527b63dadb95d6f63f35&redirect_uri=http://sclass.iptime.org:8787/JIGULYEOG/kakaoLogin.do&response_type=code">
             	<img src="${pageContext.request.contextPath}/resources/images/kakao_login_large_narrow.png" style="width: 230px; height: 50px;">
             </a>
             <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>

@@ -91,6 +91,22 @@ public class SignUpDaoImpl implements SignUpDao{
 		return 0;
 	}
 
+	@Override
+	public boolean insertChk(SignUpDto dto) {
+		SignUpDto res = null;
+		System.out.println(dto.getUser_id());
+		System.out.println(dto.getPet_no());
+		try {
+			res = sqlSession.selectOne(NAMESPACE+"insertChk",dto);
+		} catch (Exception e) {
+			System.out.println("error : insertChk sig");
+			e.printStackTrace();
+		}
+		System.out.println(res);
+		
+		return (res!=null)?true:false;
+	}
+
 	
 	
 	

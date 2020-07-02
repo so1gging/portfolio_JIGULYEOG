@@ -41,6 +41,12 @@ public class SignUpBizImpl implements SignUpBiz{
 		return dao.sigDelete(dto);
 	}
 
+	@Override
+	public boolean insertChk(SignUpDto dto) {
+		
+		return dao.insertChk(dto);
+	}
+
 	
 
 

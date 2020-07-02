@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="com.mvc.jigulyeog.model.dto.UserDto"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,8 +97,10 @@
               success : function(msg) {
                  if (msg.code > 0) {
                     location.reload();
-                 } else {
-                    alert("댓글 실패");
+                 } else if(msg.code=-1) {
+                    alert("이미 청원에 참가하셨습니다.");
+                 }else{
+                	alert("댓글 실패");
                  }
               },
               error : function() {
@@ -227,9 +230,10 @@
 								${list.size() }</label>
 						</h4>
 						<p>
+						<fmt:parseNumber var="percent" integerOnly="true" value="${list.size()*100/dto.pet_person }"/>
 						<div class="progress position-relative" style="height: 30px;">
 							<div class="progress-bar" role="progressbar"
-								style="width: ${list.size()}%; " aria-valuenow="50"
+								style="width: ${percent}%; " aria-valuenow="50"
 								aria-valuemin="0" aria-valuemax="${dto.pet_person }"></div>
 							<small
 								class="justify-content-center d-flex position-absolute w-100"></small>
@@ -285,8 +289,7 @@
 							<a href="${dto.pet_link }">${dto.pet_link }</a>
 						</div>
 						<hr>
-						<br>
-						<br>
+						<br> <br>
 					</div>
 					<br>
 
@@ -303,13 +306,15 @@
 						<input type="hidden" value="${dto.pet_no}" name="pet_no"
 							id="pet_no">
 						<c:if test="${dto.user_id != user.user_id }">
-									<div class="form-control px-3 py-3" style="width: 900px; text-align:right;">
-										<textarea rows="3" cols="90" placeholder="청원글을 입력하세요"
-											name="sig_content" id="sig_content" class="form-control"></textarea>
-										<input type="button" value="동의"
-											class="btn btn-primary py-3 px-5" onclick="insertcomment();" style="margin-top: 10px;">
-									</div>
-									<br>
+							<div class="form-control px-3 py-3"
+								style="width: 900px; text-align: right;">
+								<textarea rows="3" cols="90" placeholder="청원글을 입력하세요"
+									name="sig_content" id="sig_content" class="form-control"></textarea>
+								<input type="button" value="동의"
+									class="btn btn-primary py-3 px-5" onclick="insertcomment();"
+									style="margin-top: 10px;">
+							</div>
+							<br>
 						</c:if>
 					</form>
 
@@ -327,12 +332,12 @@
 										<p id="sig_id">${sig.user_id }</p>
 										<p>${sig.sig_content }</p>
 										<c:if test="${ sig.user_id == user.user_id}">
-											<div style="text-align:right;">
-											<input class="btn btn-success py-2 px-5" type="button" value="수정"
-												onclick="updateBtn(${sig.sig_no});">
-											<input type="button" value="삭제" class="btn btn-success py-2 px-5"
-												onclick="deleteBtn(${sig.sig_no});">
-											
+											<div style="text-align: right;">
+												<input class="btn btn-success py-2 px-5" type="button"
+													value="수정" onclick="updateBtn(${sig.sig_no});"> <input
+													type="button" value="삭제" class="btn btn-success py-2 px-5"
+													onclick="deleteBtn(${sig.sig_no});">
+
 											</div>
 										</c:if>
 
@@ -362,8 +367,7 @@
 
 			</div>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 
 
 
