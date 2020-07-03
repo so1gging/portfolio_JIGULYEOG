@@ -166,13 +166,17 @@
 					$("#user_pw_chk").focus();
 					return false;
   				}
+				if($("#user_status").val()=="-1"){
+					alert("환경단체를 선택해주세요.");
+					return false;
+				}
 				if($("#user_name").val()==""){
-					alert("성명을 입력해주세요.");
+					alert("환경단체를 선택해주세요.");
 					$("#user_name").focus();
 					return false;
 				}
 				if($("#user_nick").val()==""){
-					alert("닉네임을 입력해주세요.");
+					alert("환경단체를 선택해주세요.");
 					$("#user_nick").focus();
 					return false;
 				}
@@ -187,8 +191,13 @@
 					return false;
 				}
 				if($("#user_addr").val()==""){
-					alert("주소를 입력해주세요.");
+					alert("환경단체를 선택해주세요.");
 					$("#user_addr").focus();
+					return false;
+				}
+				if($("#file").val()==""){
+					alert("이미지를 추가해주세요.");
+					$("#file").focus();
 					return false;
 				}
 			});
@@ -224,7 +233,7 @@
       <div class="row block-9">
         <div class="col-md-6 pr-md-5" style="margin: 0 auto;">
           <form action="registOrg.do" method="POST" enctype="multipart/form-data" id="usercheck">
-          	<input type="hidden" name="user_status" id="user_status">
+          	<input type="hidden" name="user_status" id="user_status" value="-1">
             <div class="form-group joinbox">
               <input type="text" class="form-control px-3 py-3 join_input" placeholder="ID" style="width: 500px;" name="user_id" id="user_id">
               <div class="check_text" id="id_check"></div>
@@ -258,7 +267,7 @@
               <input type="file" class="form-control px-3 py-3 join_input" style="width: 500px; border: none; padding-left: 0px !important;" name="file" id="file">
             </div>
             <div class="form-group">
-              <input type="submit" value="Join" class="btn btn-success py-3 px-5 btn_success" style="width: 500px;">
+              <input type="submit" value="Join" class="btn btn-success py-3 px-5 btn_success" style="width: 500px;" id="submit">
             </div>
             <div class="form-group">
               <input type="button" value="취소" class="btn py-3 px-5 cancelbtn" style="width: 500px;" onclick="location.href='registForm.do'">

@@ -238,6 +238,11 @@
 					$("#user_addr").focus();
 					return false;
 				}
+				if($("#file").val()==""){
+					alert("이미지를 추가해주세요.");
+					$("#file").focus();
+					return false;
+				}
 			});
   			
   		});
